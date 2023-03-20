@@ -3,8 +3,6 @@ package multithreading;
 public class Player implements Runnable {
     Winner winner;
 
-    private static final int SCORE_CONST = 100;
-
     public Player(Winner winner) {
         this.winner = winner;
     }
@@ -13,16 +11,18 @@ public class Player implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i <= SCORE_CONST; i++) {
+        int scorePlayerMax = winner.scoreMax;
 
-            playerScore = winner.calcCount();
+        for (int i = 0; i <= scorePlayerMax; i++) {
 
-            if (playerScore == SCORE_CONST && Thread.interrupted()) {
+            playerScore = winner.calcScore();
+
+            if (playerScore == scorePlayerMax && Thread.interrupted()) {
                 System.out.println("I`m winner! " + Thread.currentThread().getName());
                 return;
             }
 
-            if (playerScore == SCORE_CONST-1 && Thread.interrupted()) {
+            if (playerScore == scorePlayerMax -1 && Thread.interrupted()) {
                 System.out.println("I`m latter! " + Thread.currentThread().getName());
                 return;
             }
