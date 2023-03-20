@@ -7,7 +7,6 @@ public class Player implements Runnable {
 
     public Player(Winner winner) {
         this.winner = winner;
-
     }
 
     public int playerScore = 0;
