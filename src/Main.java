@@ -19,9 +19,9 @@ public class Main {
             thredPlayerTwo.start();
             thredPlayerTwo.interrupt();
             thredPlayerOne.join();
-            System.out.println(thredPlayerOne.getName() + " count=" + playerOne.playerCount);
+            System.out.println(thredPlayerOne.getName() + " count=" + playerOne.playerScore);
             thredPlayerTwo.join();
-            System.out.println(thredPlayerTwo.getName() + " count=" + playerTwo.playerCount);
+            System.out.println(thredPlayerTwo.getName() + " count=" + playerTwo.playerScore);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
